@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_block %}
+<div class="container">
+    {% if registered %}
+    <h2>Thank you for registering</h2>
+    {% else %}
+    <form enctype="multipart/form-data" method="POST">
+        {{userform.as_p}}
+        {{user_pro.as_p}}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-success" value="Submit">
+    </form>
+    {% endif %}
+</div>
+<script src="{% static "sample.js" %}" ></script>
+{% endblock %}
